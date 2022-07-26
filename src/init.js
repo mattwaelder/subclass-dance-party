@@ -1,4 +1,9 @@
+
+
+
 $(document).ready(function() {
+
+  //??
   window.dancers = [];
 
   $('.addDancerButton').on('click', function(event) {
@@ -15,16 +20,21 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
+
+    //what does .data mean/do?
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
+    //makeBlinkyDancer = function(top, left, timeBetweenSteps)
     var dancer = dancerMakerFunction(
+      //(parameter) give some px val for height
       $("body").height() * Math.random(),
+      //(parameter) give some px val for width
       $("body").width() * Math.random(),
+      //time for blinking frequency
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
