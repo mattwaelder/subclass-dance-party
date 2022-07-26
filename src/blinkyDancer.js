@@ -42,10 +42,7 @@ MakeBlinkyDancer.prototype.constructor = MakeBlinkyDancer;
 MakeBlinkyDancer.prototype.oldStep = MakeBlinkyDancer.prototype.step;
 
 //shadowing step
-MakeBlinkyDancer.prototype.step = function () {
-  console.log(this, 'NEW STEP');
-  //not a fn
-  //this becomes window at some point???
-  this.oldStep();
+MakeBlinkyDancer.prototype.step = function (timeBetweenSteps) {
+  this.oldStep(timeBetweenSteps);
   this.$node.toggle();
 };

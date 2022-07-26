@@ -34,31 +34,19 @@
 /////////////////////////////////////////////////////////////////
 
 var MakeDancer = function (top, left, timeBetweenSteps) {
-
-  // console.log(this);
   this.$node = $('<span class="dancer"></span>');
-
   this.step(timeBetweenSteps);
   this.setPosition(top, left);
 };
 
-
 MakeDancer.prototype.step = function (timeBetweenSteps) {
-  // debugger;
-  console.log('OLD STEP');
-
-  // setTimeout(function(timeBetweenSteps) {
-  //   return this.step(timeBetweenSteps);
-  // }, timeBetweenSteps);
-
-  setTimeout(this.step.bind(this, timeBetweenSteps), timeBetweenSteps);
+  console.log('time between step', timeBetweenSteps);
+  let fn = this.step.bind(this, timeBetweenSteps);
+  setTimeout(fn, timeBetweenSteps);
 
 };
-// is this how we invoke ? iife ? DO WE EVEN NEED TO?
-
 
 MakeDancer.prototype.setPosition = function (top, left) {
-
   var styleSettings = {
     top: top,
     left: left
@@ -66,6 +54,5 @@ MakeDancer.prototype.setPosition = function (top, left) {
 
   this.$node.css(styleSettings);
 };
-// is this how we invoke ? iife ?
 
 
